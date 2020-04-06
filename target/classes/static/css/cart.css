@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+.cart-block{
+	font-weight: bold;
+}
+.cost-style{
+	font-style:italic;
+}
+.cart-header {
+	position: relative;
+}
+
+.clear-cart-btn {
+	position: absolute;	
+	top: .5rem;
+	right: .8rem;
+	border: 1px solid #f29f00;
+	color: #74400c;
+	font-weight: bold;
+	background-color: rgba(250, 224, 174, 0.52);
+	transition: .5s;
+}
+
+.clear-cart-btn:hover {
+	background-color: #fae0ae;	
+	color: #74400c;
+	font-weight: bold;
+}
+.hidden{
+	display: none;
+}
+
+
+.quantityValueBtn{
+	width:.9rem;
+	color: #74400c;
+	font-weight:bold;		
+}
+.quantityValueBtn:enabled:hover{
+	background-color: #c0c0c0;
+	
+}
+.quantityValueBtn:active{
+	background-color: #9d9d9d;	
+}
+.minusValueBtn{
+	border-bottom-left-radius:0.3rem;
+	border-top-left-radius: 0.3rem;
+	border: 2px solid #74400c;
+	border-right: none; 	
+}
+.plusValueBtn{
+	border-bottom-right-radius:0.3rem;
+	border-top-right-radius: 0.3rem; 
+	border: 2px solid #74400c;
+	border-left: none;
+}
+.cart-block .form-control{
+	height: 70%;	
+	color: #74400c;
+}
+
+.quantityValueInput{
+	border:none;
+	border-left: 1px solid #74400c;
+	border-right: 1px solid #74400c;
+	border-top:2px solid #74400c;
+	border-bottom:2px solid #74400c;
+	box-sizing: content-box;
+	width:1rem !important;
+}
+.input-group-prepend, .input-group-append{
+	border:none;
+}
+
+.input-group > .form-control{
+	flex: none;
+}
+
+.cost-style{
+	font-size:1.2rem;
+}
+
+.order-form {
+	font-weight:bold;
+}
+
+.order-form .required:after {
+	content: "*";
+	color: red;
+}

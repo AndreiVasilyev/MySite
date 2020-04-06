@@ -1,0 +1,20 @@
+.scheme{
+	border:3px solid #74400c;
+	border-radius:1rem;
+}
+
+.scheme-icons{
+	font-size: 3.5rem;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+}
+
+.scheme-text{
+	font-weight: bold;
+	font-style:italic;
+	margin:0;
+}
+
+.my-text-block{
+	text-indent: 1.5rem;
+}

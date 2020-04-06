@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+body {
+	background-image: url(/images/brown-fabric.jpg);
+	color: #74400c;
+}
+
+.border {
+	border-color: #74400c !important;
+}
+
+.listItemsMessage p {
+	text-indent: 1rem;
+	word-wrap: break-word;
+}
+
+.required::after {
+	content: "*";
+	color: red;
+}
+
+#formHelpBlock {
+	color: #74400c;
+}
+
+#formHelpBlock::before {
+	content: "*";
+	color: red;
+}
+
+.page-link{
+	margin-right:0.2rem;
+}
+
+.page-link{
+	background: none;
+	border-radius: 2px;
+	color: #74400c;
+	border:none;
+	font-weight:bold;
+}
+
+.page-link:hover{
+	background: #fae0ae;
+	border-radius: 0.25rem;
+	color: #74400c;
+	border:none;
+	font-weight:bold;
+}
+
+.page-item.disabled .page-link{
+	font-weight:normal;
+	color: #74400c;
+	background: none;
+}
+
+.page-item.active .page-link{
+	background-color: #fae0ae;
+	border:0.1rem solid #74400c;
+	color: #74400c;
+}
+
+.invalid-feedback{
+	font-weight:bold;
+}
+
+.error {
+	color: red;
+	font-size: 0.8rem;
+	font-weight:bold;
+}
+
+.error::before {
+	content: '\2022\0020';
+	
+}
+
+.error br::after {
+	content: '\2022\0020';
+}
+
+.col-form-label{
+	font-weight:bold;
+}
+
+
