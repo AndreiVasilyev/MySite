@@ -6,6 +6,7 @@
 	<groupId>by.bobruisk.homework</groupId>
 	<artifactId>Lesson10</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Lesson10</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
