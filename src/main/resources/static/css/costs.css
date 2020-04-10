@@ -182,9 +182,8 @@ input::-moz-placeholder {
 	border: 2px solid #74400c;
 	border-left: none;
 }
-.form-control{
-	height:auto;	
-	color: #74400c;
+.form-control:not(.input-element){
+	height:auto;		
 }
 
 .form-control:focus {
@@ -251,4 +250,12 @@ input::-moz-placeholder {
 
 #flashCost .form-check-inline{
 	display:block;
+}
+
+.attantion-block{
+	border: 1px solid #74400c;
+	border-radius: 0.5rem;
+	background-color: #fae0ae;
+	font-weight: bold;
+	color: red;
 }

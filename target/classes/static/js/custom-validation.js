@@ -24,7 +24,7 @@ var authorNameValidityChecks = [ {
 	isInvalid : function(input) {
 		return input.value.length < 2;
 	},
-	invalidityMessage : 'Имя(Фамилия) должны сожержать минимум 2 символа'
+	invalidityMessage : 'Имя(Фамилия) должны содержать минимум 2 символа'
 }, {
 	isInvalid : function(input) {
 		var illegalCharacters = input.value.match(/[^a-zA-Zа-яА-Я. ]/g);
@@ -53,7 +53,7 @@ var customerAddressValidityChecks = [ {
 	isInvalid : function(input) {
 		return input.value.length < 5;
 	},
-	invalidityMessage : 'Поле адреса  должно сожержать минимум 5 символов'
+	invalidityMessage : 'Поле адреса  должно содержать минимум 5 символов'
 }, {
 	isInvalid : function(input) {
 		var isLegalAddress = input.value.match(/[a-zA-Zа-яА-Я0-9. #№"':,/-]/g);
@@ -67,7 +67,7 @@ var emailAddressValidityChecks = [
 			isInvalid : function(input) {
 				return input.value.length < 5 && input.value.length > 0;
 			},
-			invalidityMessage : 'Поле email  должен сожержать минимум 5 символов'
+			invalidityMessage : 'Поле email  должен содержать минимум 5 символов'
 		},
 		{
 			isInvalid : function(input) {

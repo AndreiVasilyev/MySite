@@ -507,7 +507,7 @@
 						<a href="${commentsUrl}#newCommentLink"
 							class="btn add-feedback-btn p-1" data-toggle="tooltip"
 							data-placement="bottom" title="Добавить отзыв"><img
-							src="/Images/add_comment.png" class="img-fluid"
+							src="/images/add_comment.png" class="img-fluid"
 							alt="add_feedback"></a>
 					</div>
 					<div>

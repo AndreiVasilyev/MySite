@@ -14,10 +14,10 @@ body {
 	word-wrap: break-word;
 }
 
-.required::after {
+#newCommentForm .required::after {
 	content: "*";
 	color: red;
-}
+} 
 
 #formHelpBlock {
 	color: #74400c;

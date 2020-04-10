@@ -205,12 +205,10 @@
 						</div>
 					</div>
 					<div id="cart" class="p-0 col text-right">
-						<a href="/cart"> 
-							<i class="fa fa-cart-arrow-down">								
-							</i>							
-						</a>
-						<span class="badge badge-light" id="totalQuantity">${cart.totalItemsQuantity}</span>
-						<span class="badge badge-light" id="totalCost">Сумма: ${cart.totalCost} руб.</span>
+						<a href="/cart"> <i class="fa fa-cart-arrow-down"> </i>
+						</a> <span class="badge badge-light" id="totalQuantity">${cart.totalItemsQuantity}</span>
+						<span class="badge badge-light" id="totalCost">Сумма:
+							${cart.totalCost} руб.</span>
 					</div>
 				</div>
 			</div>
@@ -305,6 +303,12 @@
 	<main class="mb-1 mainContext">
 		<div class="container">
 			<div class="row mt-3 mb-4 justify-content-center">
+				<div class="attantion-block col-12 my-3 p-2 text-center">
+					<p>Внимание! Данная страница работает в тестовом режиме! База
+						данных по принтерам находится в режиме наполненния, ЦЕНЫ не
+						являются действующими на данный момент. Актуальную информацию
+						можно получить по указанным на сайте контактам.</p>
+				</div>
 				<div class="control-card-block col-12 mt-3 px-4">
 					<div class="row">
 						<div class="col-12 col-md-6">
@@ -377,11 +381,11 @@
 														value="${printers.originalCartridge.chipCost}"></c:set>
 													<c:if
 														test="${empty reflashCost or reflashCost gt chipCost}">
-														<c:set var="minCost"  value="${chipCost}"></c:set>
+														<c:set var="minCost" value="${chipCost}"></c:set>
 														<c:set var="textCost" value="чип"></c:set>
 													</c:if>
 													<c:if test="${empty chipCost or reflashCost le chipCost}">
-														<c:set var="minCost"  value="${reflashCost}"></c:set>
+														<c:set var="minCost" value="${reflashCost}"></c:set>
 														<c:set var="textCost" value="прошивка"></c:set>
 													</c:if>
 													<c:out value="${textCost} от ${minCost} руб."></c:out>
@@ -581,7 +585,7 @@
 	<script src="/js/jquery.maskedinput.min.js"></script>
 	<script src="/js/common.js"></script>
 	<script src="/js/ajax-requests.js"></script>
-	<script src="/js/costs.js"></script>	
+	<script src="/js/costs.js"></script>
 </body>
 
 </html>
