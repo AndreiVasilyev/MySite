@@ -1,0 +1,65 @@
+.email-form-link{
+	color:#74400c;
+	font-style:italic;
+	font-weight: bold;
+	
+}
+.email-form-link:hover {
+	color:#74400c;
+	font-weight: bold;
+	text-decoration: none;
+}
+.input-label{
+	font-style:italic;
+	font-weight: bold;
+}
+
+input[type="file"] {
+	outline:0;
+	opacity:0;
+	pointer-events:none;
+	user-select:none;
+	width:0.1rem;
+	position:absolute;
+}
+
+.attach-label{	
+	display:inline-block;	
+	cursor:pointer;
+}
+
+.attach-label i{
+	display:block;
+	font-size:2.5rem;	
+	transition:200ms color;
+}
+
+.attach-label span{
+	display: block;
+	font-weight: bold;
+	transition:100ms color;
+}
+
+.attach-label:hover i{	
+	color:rgba(116, 64, 12, 0.8);
+}
+.attach-label:hover span{	
+	color:rgba(116, 64, 12, 0.8);
+}
+
+.remove-file-link{
+	color: #74400c;
+	font-weight:bold;
+	font-size:1.1rem;
+	transition:100ms color;
+}
+
+.remove-file-link:hover {	
+	text-decoration: none;
+	color:rgba(116, 64, 12, 0.8);
+}
+
+.error{
+	color:red;
+	font-weight: bold;
+}

@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "orders_addition")
@@ -17,6 +20,7 @@ public class OrderAddition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long itemId;
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "order_id",referencedColumnName = "id")
 	private Order order;
@@ -36,6 +40,26 @@ public class OrderAddition {
 	private Integer flashQuantity;
 	@Column
 	private Double flashPrice;
+	@Transient
+	private String fullName;
+	
+	
+
+	public Long getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
 	public Long getId() {
 		return itemId;

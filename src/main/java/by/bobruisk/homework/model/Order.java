@@ -19,109 +19,132 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+
 @Entity
 @Table(name = "orders")
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotEmpty(message="Поле обязательное к заполнению")	
+	@NotEmpty(message = "Поле обязательное к заполнению")
 	@Size(min = 2, message = "Поле должно содержать не менее 2-х символов")
-	@Pattern(regexp = "^[a-zA-Zа-яА-Я]+[a-zA-Zа-яА-Я. ]*[a-zA-Zа-яА-Я]+$",message = "Недопустимый формат имени")
+	@Pattern(regexp = "^[a-zA-Zа-яА-Я]+[a-zA-Zа-яА-Я. ]*[a-zA-Zа-яА-Я]+$", message = "Недопустимый формат имени")
 	@Column(nullable = false)
 	private String customerName;
-	@NotEmpty(message="Поле обязательное к заполнению")
-	@Pattern(regexp="^\\+375\\([1-9]{2}\\) [1-9][0-9]{2}(-[0-9]{2}){2}$",message="Недопустимый формат телефона '+375(ХХ) ХХХ-ХХ-ХХ'")
+	@NotEmpty(message = "Поле обязательное к заполнению")
+	@Pattern(regexp = "^\\+375\\([1-9]{2}\\) [1-9][0-9]{2}(-[0-9]{2}){2}$", message = "Недопустимый формат телефона '+375(ХХ) ХХХ-ХХ-ХХ'")
 	@Column(nullable = false)
-	private String phoneNumber;	
-	@Email(message="Недопустимый формат элктронного адреса",regexp = "^(.+@.+\\..+)?$")
-	@Column
-	private String emailAddress;	
-	@Pattern(regexp = "^[a-zA-Zа-яА-Я0-9\\. #№\\\"':,\\/\\-]*$",message = "Недопустимый формат имени")
+	private String phoneNumber;
+	@Email(message = "Недопустимый формат элктронного адреса", regexp = "^(.+@.+\\..+)?$")
+	@Column(nullable = false)
+	private String emailAddress;
+	@Pattern(regexp = "^[a-zA-Zа-яА-Я0-9\\. #№\\\"':,\\/\\-]*$", message = "Недопустимый формат имени")
 	@Column
 	private String customerAddress;
 	@Column
 	private String additionalInfo;
 	@Column
 	private String deviceModel;
-	@Column(nullable = false,columnDefinition = "enum('RECIEVED','ACCEPTED','DELAYED','COMPLETED','CANСELED')")
+	@Column(nullable = false, columnDefinition = "enum('RECIEVED','ACCEPTED','DELAYED','COMPLETED','CANСELED')")
 	@Enumerated(EnumType.STRING)
 	private Conditions orderCondition;
-	@Column(nullable = false,columnDefinition = "enum('CALL_ORDER','QUICK_ORDER','FULL_ORDER')")
+	@Column(nullable = false, columnDefinition = "enum('CALL_ORDER','QUICK_ORDER','FULL_ORDER')")
 	@Enumerated(EnumType.STRING)
 	private OrderSources orderSource;
 	@Column(nullable = false)
 	private Date dateOrder;
-	@OneToMany(fetch = FetchType.EAGER,mappedBy = "order",cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order", cascade = CascadeType.ALL)
 	private Set<OrderAddition> orderAdditions;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getCustomerName() {
 		return customerName;
 	}
+
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getEmailAddress() {
 		return emailAddress;
 	}
+
 	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+			this.emailAddress = emailAddress;
 	}
+
 	public String getCustomerAddress() {
 		return customerAddress;
 	}
+
 	public void setCustomerAddress(String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
+
 	public String getAdditionalInfo() {
 		return additionalInfo;
 	}
+
 	public void setAdditionalInfo(String additionalInfo) {
 		this.additionalInfo = additionalInfo;
 	}
+
 	public String getDeviceModel() {
 		return deviceModel;
 	}
+
 	public void setDeviceModel(String deviceModel) {
 		this.deviceModel = deviceModel;
 	}
+
 	public Conditions getOrderCondition() {
 		return orderCondition;
 	}
+
 	public void setOrderCondition(Conditions orderCondition) {
 		this.orderCondition = orderCondition;
 	}
+
 	public OrderSources getOrderSource() {
 		return orderSource;
 	}
+
 	public void setOrderSource(OrderSources orderSource) {
 		this.orderSource = orderSource;
 	}
+
 	public Date getDateOrder() {
 		return dateOrder;
 	}
+
 	public void setDateOrder(Date dateOrder) {
 		this.dateOrder = dateOrder;
 	}
-	
+
 	public Set<OrderAddition> getOrderAdditions() {
 		return orderAdditions;
 	}
+
 	public void setOrderAdditions(Set<OrderAddition> orderAdditions) {
 		this.orderAdditions = orderAdditions;
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -138,6 +161,7 @@ public class Order {
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -182,11 +206,6 @@ public class Order {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (orderAdditions == null) {
-			if (other.orderAdditions != null)
-				return false;
-		} else if (!orderAdditions.equals(other.orderAdditions))
-			return false;
 		if (orderCondition != other.orderCondition)
 			return false;
 		if (orderSource != other.orderSource)
@@ -198,6 +217,7 @@ public class Order {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", customerName=" + customerName + ", phoneNumber=" + phoneNumber + ", emailAddress="
@@ -205,6 +225,5 @@ public class Order {
 				+ ", deviceModel=" + deviceModel + ", orderCondition=" + orderCondition + ", orderSource=" + orderSource
 				+ ", dateOrder=" + dateOrder + ", orderAdditions=" + orderAdditions + "]";
 	}
-	
-	
+
 }

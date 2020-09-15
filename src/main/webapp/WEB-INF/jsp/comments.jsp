@@ -11,10 +11,10 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="/css/bootstrap.css">
-<link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/comments.css">
-<link rel="stylesheet" href="/css/font-awesome.css">
+<link rel="stylesheet" href="<c:url value="/css/bootstrap.css"/>">
+<link rel="stylesheet" href="<c:url value="/css/common.css"/>">
+<link rel="stylesheet" href="<c:url value="/css/comments.css"/>">
+<link rel="stylesheet" href="<c:url value="/css/font-awesome.css"/>">
 <title>QHP (Quick help for printing)</title>
 </head>
 
@@ -501,13 +501,13 @@
 			</div>
 		</div>
 	</footer>
-	<script src="/js/jquery-3.0.0.min.js"></script>
-	<script src="/js/popper.min.js"></script>
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/jquery.dotdotdot.js" type="text/javascript"></script>
-	<script src="/js/custom-validation.js"></script>
-	<script src="/js/jquery.maskedinput.min.js"></script>
-	<script src="/js/common.js"></script>
-	<script src="/js/comments.js"></script>
+	<script src="<c:url value="/js/jquery-3.0.0.min.js"/>"></script>
+	<script src="<c:url value="/js/popper.min.js"/>"></script>
+	<script src="<c:url value="/js/bootstrap.js"/>"></script>
+	<script src="<c:url value="/js/jquery.dotdotdot.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/js/custom-validation.js"/>"></script>
+	<script src="<c:url value="/js/jquery.maskedinput.min.js"/>"></script>
+	<script src="<c:url value="/js/common.js"/>"></script>
+	<script src="<c:url value="/js/comments.js"/>"></script>	
 </body>
 </html>

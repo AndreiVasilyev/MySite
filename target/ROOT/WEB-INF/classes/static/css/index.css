@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+.my-subborder {
+	padding: 1.5rem;
+	outline: 1px solid #74400c;
+	outline-offset: -0.3rem;
+}
+
+.carousel-control-icon-bg {
+	background-color: #fae0ae;
+	padding: 0.4rem;
+	padding-top: 0.7rem;
+	border: 1px solid #74400c;
+	border-radius: 0.4rem;
+}
+
+.carousel-control-prev-icon {
+	background-image:
+		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2374400c' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon {
+	background-image:
+		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2374400c' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.carousel-indicators li {
+	border: 1px solid #74400c;
+	background-color: #fae0ae;
+}
+
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.45);
+	border-radius: 0.2rem;
+	padding-left: 0.1rem;
+	color: #ffff;
+	bottom: 2rem;
+	font-size: 0.9rem;
+}
+
+.about {
+	text-indent: 1rem;
+	font-weight: bold;
+}
+
+.services-list {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.my-links {
+	color: #74400c;
+}
+
+.my-links:hover {
+	text-decoration: none;
+	border: 1px solid #74400c;
+	background-color: #fae0ae;
+	color: #74400c;
+	padding: 0.3rem;
+	border-radius: 0.2rem;
+}
+
+.my-link-bg {
+	height: 2rem;
+}
+
+@media ( min-width : 992px) {
+	.comment-border {
+		border-right: 1px solid #74400c;
+	}
+	.commentText {
+		height: 14rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+@media ( max-width : 991.98px) {
+	.commentText {
+		height: auto;
+	}
+}
+
+.advantege-header {
+	display: inline;
+	margin-left: .5rem;
+	font-weight: bold;
+}
+
+.advantage-text {
+	margin-top: .5rem;
+}
+
+.feedback-header {
+	position: relative;
+}
+
+.add-feedback-btn {
+	position: absolute;
+	width: 2.5rem;
+	height: 2.5rem;
+	top: .3rem;
+	right: .8rem;
+	border: 1px solid #f29f00;
+	background-color: rgba(250, 224, 174, 0.52);
+	transition: .5s;
+}
+
+.add-feedback-btn:hover {
+	background-color: #fae0ae;
+	width: 2.7rem;
+	height: 2.7rem;
+}
+
+.commentText {
+	text-indent: 1rem;
+}
+
+.commentLink {
+	color: #74400c;
+}
+
+.commentLink:hover {
+	text-decoration: none;
+	color: #74400c;
+}
+
+.commentLink:hover i {
+	font-size: 1.1rem;
+}
+

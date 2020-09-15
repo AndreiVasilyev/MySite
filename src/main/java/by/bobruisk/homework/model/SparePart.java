@@ -1,5 +1,6 @@
 package by.bobruisk.homework.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -37,6 +39,28 @@ public class SparePart {
 	@ManyToMany(mappedBy = "spareParts")
 	@JsonBackReference
 	private Set<Cartridge> compatibleCartridges;
+
+	@Transient
+	private List<Long> compatiblePrintersId;
+
+	@Transient
+	private List<Long> compatibleCartridgesId;
+
+	public List<Long> getCompatiblePrintersId() {
+		return compatiblePrintersId;
+	}
+
+	public void setCompatiblePrintersId(List<Long> compatiblePrintersId) {
+		this.compatiblePrintersId = compatiblePrintersId;
+	}
+
+	public List<Long> getCompatibleCartridgesId() {
+		return compatibleCartridgesId;
+	}
+
+	public void setCompatibleCartridgesId(List<Long> compatibleCartridgesId) {
+		this.compatibleCartridgesId = compatibleCartridgesId;
+	}
 
 	public Long getId() {
 		return id;
@@ -90,8 +114,6 @@ public class SparePart {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((compatibleCartridges == null) ? 0 : compatibleCartridges.hashCode());
-		result = prime * result + ((compatiblePrinters == null) ? 0 : compatiblePrinters.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imageLink == null) ? 0 : imageLink.hashCode());
 		result = prime * result + ((replacementСost == null) ? 0 : replacementСost.hashCode());
@@ -108,16 +130,6 @@ public class SparePart {
 		if (getClass() != obj.getClass())
 			return false;
 		SparePart other = (SparePart) obj;
-		if (compatibleCartridges == null) {
-			if (other.compatibleCartridges != null)
-				return false;
-		} else if (!compatibleCartridges.equals(other.compatibleCartridges))
-			return false;
-		if (compatiblePrinters == null) {
-			if (other.compatiblePrinters != null)
-				return false;
-		} else if (!compatiblePrinters.equals(other.compatiblePrinters))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;

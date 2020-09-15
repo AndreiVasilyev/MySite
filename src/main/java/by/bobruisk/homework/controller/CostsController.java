@@ -67,9 +67,9 @@ public class CostsController {
 			response.setPrintersPage(printersPage.toList());
 			response.setErrorMessage("");
 		}
-		return response;
+		return response; 
 	}
-
+ 
 	@ResponseBody
 	@GetMapping("/costs/find/{modelName}")
 	public PrinterCountAjaxResponseBody foundResultAjaxResponseByModel(@PathVariable String modelName) {

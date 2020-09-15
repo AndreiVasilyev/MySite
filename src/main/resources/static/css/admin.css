@@ -5,3 +5,55 @@
 .error{
 	color:red;
 }
+
+a:hover{
+	text-decoration: none;
+}
+
+.attach-label{
+	display: inline-block;
+    cursor: pointer;
+  
+}
+
+input[type="file"] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    width: 0.1rem;
+    position: absolute;
+}
+
+.action-width{
+	width: 6rem;
+}
+
+.table-container{
+	height: 30rem;
+	overflow-y: auto;	
+}
+
+.table-container th{
+	position: sticky;
+	top:0;
+}
+
+.stick-filter{
+	position: sticky;
+	top:2.1rem;
+}
+
+.table th, .table td{
+	border-top:none;
+}
+
+.table thead th{
+	border-bottom: none;
+	white-space: nowrap;
+}
+
+.border-success{
+	border-width: 2px;
+	background-color: infobackground;
+}

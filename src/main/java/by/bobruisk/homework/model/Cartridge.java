@@ -1,10 +1,8 @@
 package by.bobruisk.homework.model;
 
-
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
@@ -23,7 +22,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 @Table(name = "cartridges")
@@ -36,15 +34,15 @@ public class Cartridge {
 	@NotEmpty(message = "поле обязательно к заполнению")
 	private String modelName;
 	@Column
-	@Pattern(regexp = "^([a-zA-Zа-яА-Я0-9]+\\.((jpg)|(png)|(svg)))*$",message = "неверный формат ввода")
+	@Pattern(regexp = "^([a-zA-Zа-яА-Я0-9]+\\.((jpg)|(png)|(svg)))*$", message = "неверный формат ввода")
 	private String imageLink;
-	@ManyToMany(mappedBy = "compatibleCartridges")	
+	@ManyToMany(mappedBy = "compatibleCartridges")
 	@JsonIgnore
 	private Set<Printer> compatiblePrinters;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "originalCartridge")	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "originalCartridge")
 	@JsonIgnore
 	private Set<Printer> nativePrinters;
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "cartridges_spareParts", joinColumns = {
 			@JoinColumn(name = "cartridge_id") }, inverseJoinColumns = { @JoinColumn(name = "sparePart_id") })
 	@JsonIgnore
@@ -56,15 +54,48 @@ public class Cartridge {
 	private Integer resource;
 	@Column
 	@NotNull(message = "поле обязательно к заполнению")
-	@Digits(fraction = 2,integer = 3,message = "неверный формат ввода")
+	@Digits(fraction = 2, integer = 3, message = "неверный формат ввода")
 	private Double refillCost;
 	@Column
 	private Boolean isChipped;
 	@Column
 	private String chipName;
 	@Column
-	@Digits(fraction = 2,integer = 3,message = "неверный формат ввода")
+	@Digits(fraction = 2, integer = 3, message = "неверный формат ввода")
 	private Double chipCost;
+
+	@Transient
+	private List<Long> compatiblePrintersId;
+
+	@Transient
+	private List<Long> nativePrintersId;
+
+	@Transient
+	private List<Long> sparePartsId;
+
+	public List<Long> getCompatiblePrintersId() {
+		return compatiblePrintersId;
+	}
+
+	public void setCompatiblePrintersId(List<Long> compatiblePrintersId) {
+		this.compatiblePrintersId = compatiblePrintersId;
+	}
+
+	public List<Long> getNativePrintersId() {
+		return nativePrintersId;
+	}
+
+	public void setNativePrintersId(List<Long> nativePrintersId) {
+		this.nativePrintersId = nativePrintersId;
+	}
+
+	public List<Long> getSparePartsId() {
+		return sparePartsId;
+	}
+
+	public void setSparePartsId(List<Long> sparePartsId) {
+		this.sparePartsId = sparePartsId;
+	}
 
 	public Long getId() {
 		return id;
@@ -161,22 +192,21 @@ public class Cartridge {
 	public void setChipCost(Double chipCost) {
 		this.chipCost = chipCost;
 	}
+
 	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((chipCost == null) ? 0 : chipCost.hashCode());
 		result = prime * result + ((chipName == null) ? 0 : chipName.hashCode());
-		result = prime * result + ((compatiblePrinters == null) ? 0 : compatiblePrinters.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imageLink == null) ? 0 : imageLink.hashCode());
 		result = prime * result + ((isChipped == null) ? 0 : isChipped.hashCode());
 		result = prime * result + ((modelName == null) ? 0 : modelName.hashCode());
-		result = prime * result + ((nativePrinters == null) ? 0 : nativePrinters.hashCode());
 		result = prime * result + ((refillCost == null) ? 0 : refillCost.hashCode());
 		result = prime * result + ((resource == null) ? 0 : resource.hashCode());
-		result = prime * result + ((spareParts == null) ? 0 : spareParts.hashCode());
 		result = prime * result + ((tonerCapacity == null) ? 0 : tonerCapacity.hashCode());
 		return result;
 	}
@@ -200,11 +230,6 @@ public class Cartridge {
 				return false;
 		} else if (!chipName.equals(other.chipName))
 			return false;
-		if (compatiblePrinters == null) {
-			if (other.compatiblePrinters != null)
-				return false;
-		} else if (!compatiblePrinters.equals(other.compatiblePrinters))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -225,11 +250,6 @@ public class Cartridge {
 				return false;
 		} else if (!modelName.equals(other.modelName))
 			return false;
-		if (nativePrinters == null) {
-			if (other.nativePrinters != null)
-				return false;
-		} else if (!nativePrinters.equals(other.nativePrinters))
-			return false;
 		if (refillCost == null) {
 			if (other.refillCost != null)
 				return false;
@@ -239,11 +259,6 @@ public class Cartridge {
 			if (other.resource != null)
 				return false;
 		} else if (!resource.equals(other.resource))
-			return false;
-		if (spareParts == null) {
-			if (other.spareParts != null)
-				return false;
-		} else if (!spareParts.equals(other.spareParts))
 			return false;
 		if (tonerCapacity == null) {
 			if (other.tonerCapacity != null)

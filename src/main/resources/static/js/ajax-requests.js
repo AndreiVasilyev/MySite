@@ -160,7 +160,7 @@ function getPageViaAjax(controller, flag) {
 			console.log("SUCCESS: ", data);
 			if (flag == 1) {				
 				displayCount(data);
-			} else {				
+			} else {					
 				display(data);
 			}
 			addLinksListener();
@@ -251,9 +251,10 @@ function display(data) {
 
 			if (!data.printersPage[i].isReflashable
 					&& !data.printersPage[i].originalCartridge.isChipped) {
-				cardBlockHTML += '<div class="card-text" id="emptyCost">не требуется</div></div>';
-			} else {
+				cardBlockHTML += '<div class="card-text" id="emptyCost">не требуется</div></div>';				
+			} else {				
 				if (data.printersPage[i].reflashCost != null) {
+					console.log("in second-first if section of flashing");
 					cardBlockHTML += '<div class="card-text row m-0" id="flashCost"><div class="form-check form-check-inline col-6 text-right justify-content-end p-1 m-0">';
 					cardBlockHTML += '<input class="form-check-input" type="checkbox" id="reflashCheckbox'
 							+ i + '" value="false">';
@@ -261,9 +262,9 @@ function display(data) {
 							+ i + '">прошивка</label>';
 					cardBlockHTML += '</div><div class="col-6 text-left p-1">'
 							+ data.printersPage[i].reflashCost
-							+ ' <span> руб.</span></div></div></div>';
+							+ ' <span> руб.</span></div></div>';
 				}
-				if (data.printersPage[i].originalCartridge.chipCost != null) {
+				if (data.printersPage[i].originalCartridge.chipCost != null) {					
 					cardBlockHTML += '<div class="card-text row m-0" id="chipCost"><div class="form-check form-check-inline col-6 text-right justify-content-end p-1 m-0">';
 					cardBlockHTML += '<input class="form-check-input" type="checkbox" id="chipCheckbox'
 							+ i + '" value="false">';
@@ -271,22 +272,22 @@ function display(data) {
 							+ i + '">чип</label></div>';
 					cardBlockHTML += '<div class="col-6 text-left p-1">'
 							+ data.printersPage[i].originalCartridge.chipCost
-							+ '<span> руб.</span></div></div></div>';					
+							+ '<span> руб.</span></div></div>';					
 				}
+				cardBlockHTML +='</div>';
 			}
-
 			cardBlockHTML += '<div class="card-footer"><div class="card-total-cost">0 <i class="fa fa-rub"></i></div>';
 			cardBlockHTML += '<div class="container"><div class="row"><div class="col-4 p-0 input-group">';
 			cardBlockHTML += '<div class="input-group-prepend"><button class="quantityBtn minusBtn px-0" disabled>-</button></div>';
 			cardBlockHTML += '<input style="" value="0" class="form-control px-0 text-center quantityInput"><div class="input-group-append">';
 			cardBlockHTML += '<button class="quantityBtn plusBtn px-0">+</button></div></div><div class="col-8 p-0 pl-1">';
 			cardBlockHTML += '<a class="btn choose-button w-100">В корзину</a></div></div></div></div></div></div></div>';
-			if (i == (data.printersPage.length - 1) || (i + 5) % 4 == 0) {
-				cardBlockHTML += '</div>';
+			if (i == (data.printersPage.length - 1) || (i + 5) % 4 == 0) {				
+				cardBlockHTML += '</div>';				
 			}
 
 		}
-		cardBlockHTML += '</div>';
+		cardBlockHTML += '</div>';		
 	} else {
 		cardBlockHTML += data.errorMessage;
 	}

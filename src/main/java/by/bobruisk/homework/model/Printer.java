@@ -16,10 +16,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,17 +37,17 @@ public class Printer {
 	@Column
 	@NotEmpty(message = "поле обязательно к заполнению")
 	private String modelName;
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL) 
+	@ManyToOne(fetch = FetchType.LAZY) 
 	@JoinColumn(name="cartridge_id")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Cartridge originalCartridge;
 	@Column
 	@Pattern(regexp = "^([a-zA-Zа-яА-Я0-9]+\\.((jpg)|(png)|(svg)))*$",message = "неверный формат ввода")
 	private String imageLink;
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "printers_cartridges", joinColumns = { @JoinColumn(name = "printer_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "cartridge_id") })
-	@JsonIgnore
+	@JsonIgnore		
 	private List<Cartridge> compatibleCartridges;
 	@Column
 	private Boolean isReflashable;
@@ -60,11 +60,35 @@ public class Printer {
 	@JsonIgnore
 	private List<SparePart> spareParts;
 	@Column
-	private Long popularityRating;
+	private Long popularityRating;	
+	
+	@Transient
+	private List<Long> compatibleCartridgesId;
+	
+	@Transient
+	private List<Long> sparePartsId;
+	
+	
+	
+	public List<Long> getSparePartsId() {
+		return sparePartsId;
+	}
+
+	public void setSparePartsId(List<Long> sparePartsId) {
+		this.sparePartsId = sparePartsId;
+	}
+
+	public List<Long> getCompatibleCartridgesId() {
+		return compatibleCartridgesId;
+	}
+
+	public void setCompatibleCartridgesId(List<Long> compatibleCartridgesId) {
+		this.compatibleCartridgesId = compatibleCartridgesId;
+	}
 
 	public Long getId() {
 		return id;
-	}
+	}	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -146,11 +170,12 @@ public class Printer {
 		return vendorName+" "+modelName;
 	}
 
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((compatibleCartridges == null) ? 0 : compatibleCartridges.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imageLink == null) ? 0 : imageLink.hashCode());
 		result = prime * result + ((isReflashable == null) ? 0 : isReflashable.hashCode());
@@ -158,7 +183,6 @@ public class Printer {
 		result = prime * result + ((originalCartridge == null) ? 0 : originalCartridge.hashCode());
 		result = prime * result + ((popularityRating == null) ? 0 : popularityRating.hashCode());
 		result = prime * result + ((reflashCost == null) ? 0 : reflashCost.hashCode());
-		result = prime * result + ((spareParts == null) ? 0 : spareParts.hashCode());
 		result = prime * result + ((vendorName == null) ? 0 : vendorName.hashCode());
 		return result;
 	}
@@ -172,11 +196,6 @@ public class Printer {
 		if (getClass() != obj.getClass())
 			return false;
 		Printer other = (Printer) obj;
-		if (compatibleCartridges == null) {
-			if (other.compatibleCartridges != null)
-				return false;
-		} else if (!compatibleCartridges.equals(other.compatibleCartridges))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -212,15 +231,7 @@ public class Printer {
 				return false;
 		} else if (!reflashCost.equals(other.reflashCost))
 			return false;
-		if (spareParts == null) {
-			if (other.spareParts != null)
-				return false;
-		} else if (!spareParts.equals(other.spareParts))
-			return false;
-		if (vendorName == null) {
-			if (other.vendorName != null)
-				return false;
-		} else if (!vendorName.equals(other.vendorName))
+		if (vendorName != other.vendorName)
 			return false;
 		return true;
 	}

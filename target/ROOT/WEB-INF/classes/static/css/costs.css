@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+.custom-select{
+	border: 2px solid #74400c;
+	color: #74400c;
+	font-style: italic;
+}
+.custom-select:focus {
+  border-color: #74400c;
+  box-shadow: none;
+}
+.model-find-button{
+	border: 2px solid #74400c;
+	color: #74400c;
+	font-weight:bold;
+}
+.model-find-button:hover{
+	background-color: #74400c;
+	color: #fae0ae;
+}
+.model-find-button:first-of-type{
+	border-right:none;
+}
+.model-find-button:nth-of-type(2){
+	border-bottom-right-radius: 0.25rem !important;
+	border-top-right-radius: 0.25rem !important;
+}
+.badge-secondary{
+	background-color: #74400c;
+	color:#fae0ae;
+}
+.founded{
+	border-radius:0.2rem;
+	text-align: center;
+    vertical-align: baseline;
+    font-size:80%;
+}
+
+.control-card-block{
+	min-height: 7rem;
+	
+}
+.control-card-block .form-control{	
+	border: 2px solid #74400c;
+	border-right:none;
+}
+input::-moz-placeholder { 
+	color: rgba(116, 64, 12, 0.8); 
+	font-style: italic;
+}
+.form-control::-webkit-input-placeholder {
+	color: rgba(116, 64, 12, 0.8); 
+	font-style: italic;
+}
+.card-item {
+	height: 27rem; 
+	border: 2px solid #74400c;	
+	border-radius:0.5rem;
+	position: relative;
+	background-color:white;
+	width:95%;
+}
+
+.rotate {
+	transition: 2s;
+	transform-style: preserve-3d;
+	transform: rotateY(180deg);
+} 
+.rotate-back {
+	transition: 2s;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+
+.front, .back {	
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	z-index: 2;	
+	backface-visibility: hidden;
+}
+
+.back {
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+}
+
+.card-header {
+	padding: 0.5rem;
+	font-weight: bold;	
+	border-bottom: 1px solid #74400c;
+}
+
+.card-body {
+	padding: 0;
+}
+
+.card-title {
+	font-weight: bold;
+}
+
+.front .card-body .card-text:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.03);
+	font-style: italic;
+}
+
+.back .card-body .card-title,.card-total-cost{
+	background-color: rgba(0, 0, 0, 0.03);
+	font-style: italic;
+}
+
+.card-total-cost{
+	font-weight: bold;
+	font-size: 1.5rem;
+	position: absolute;
+	top:-2.5rem;
+	left: -.01rem;
+	width:100%;
+}
+.card-footer {	
+	padding: .3rem;
+	border-top: 1px solid #74400c;
+	position:absolute;
+	width:100%;
+	bottom:0;
+}
+
+.choose-button {
+	border: 2px solid #74400c;
+	font-weight: bold;
+	background-color: rgba(250, 224, 174, 0.3);
+}
+
+.choose-button:hover {
+	background-color: rgba(250, 224, 174, 0.9);
+}
+
+.choose-button:active {
+	background-color: rgb(240, 199, 119);
+	color: #fff !important;
+}
+
+
+.back-link{
+	position:absolute;
+	right:0.4rem;
+	top: 0.3rem;
+	font-size:1.5rem !important;
+	padding: 0.2rem;
+	color: rgba(116, 64, 12, 0.8);
+}
+
+.back-link:hover{
+	color: rgba(116, 64, 12, 1);
+}
+
+.quantityBtn{
+	width:.9rem;
+	color: #74400c;
+	font-weight:bold;		
+}
+.quantityBtn:enabled:hover{
+	background-color: #c0c0c0;
+	
+}
+.quantityBtn:active{
+	background-color: #9d9d9d;
+	
+}
+.minusBtn{
+	border-bottom-left-radius:0.3rem;
+	border-top-left-radius: 0.3rem;
+	border: 2px solid #74400c;
+	border-right: none; 	
+}
+.plusBtn{
+	border-bottom-right-radius:0.3rem;
+	border-top-right-radius: 0.3rem; 
+	border: 2px solid #74400c;
+	border-left: none;
+}
+.form-control:not(.input-element){
+	height:auto;		
+}
+
+.form-control:focus {
+  color: #74400c;
+  box-shadow:none;  
+}
+
+.quantityInput{
+	border:none;
+	border-left: 1px solid #74400c;
+	border-right: 1px solid #74400c;
+	border-top:2px solid #74400c;
+	border-bottom:2px solid #74400c;
+	box-sizing: content-box;
+	
+}
+.input-group-prepend, .input-group-append{
+	border:none;
+}
+ .page-link {   
+    color: #74400c;
+    font-weight: bold;
+    background-color: rgba(250, 224, 174, 0.6);
+    border: none;
+    margin-left: 0;
+}
+
+.page-item:first-child .page-link{
+	border: 2px solid #74400c;
+}
+.page-item:not(:first-child) .page-link{
+	border-top: 2px solid #74400c;
+	border-bottom: 2px solid #74400c;
+	border-right: 2px solid #74400c;
+ } 
+ 
+.page-link:hover {   
+    color: #74400c;
+    font-weight: bold;
+    background-color: rgb(255, 228, 178);    
+}
+
+.page-item.disabled .page-link{   
+    color: rgba(116, 64, 12, 0.74);
+    background-color: rgba(250, 224, 174, 0.4);  
+}
+
+.page-item.active .page-link{   
+    color: #74400c;
+    background-color: rgba(116, 64, 12, 0.3);
+}
+
+.page-link:focus {	
+	box-shadow:none;	
+}
+
+.page-link:active {		
+	background-color: rgb(227, 195, 134);
+	
+}
+.active-cost{
+	background-color: rgba(192, 192, 192,0.7);
+}
+
+#flashCost .form-check-inline{
+	display:block;
+}
+
+.attantion-block{
+	border: 1px solid #74400c;
+	border-radius: 0.5rem;
+	background-color: #fae0ae;
+	font-weight: bold;
+	color: red;
+}

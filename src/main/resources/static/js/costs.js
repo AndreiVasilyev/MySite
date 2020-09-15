@@ -30,10 +30,9 @@ function addCardListeners() {
 	var quantityInputElements = document.querySelectorAll('.quantityInput');
 	var plusButtonElements = document.querySelectorAll('.plusBtn');
 	var minusButtonElements = document.querySelectorAll('.minusBtn');
-	var checkInputElements = document.querySelectorAll('.form-check-input');
-
-	for (var i = 0; i < backCardLink.length; i++) {
-		frontChooseButtons[i].onclick = function(event) {
+	var checkInputElements = document.querySelectorAll('.form-check-input');	
+	for (var i = 0; i < backCardLink.length; i++) {		
+		frontChooseButtons[i].onclick = function(event) {			
 			var currentButton = event.currentTarget;
 			currentButton.parentNode.parentNode.parentNode.classList
 					.remove('rotate-back');
@@ -212,10 +211,8 @@ function addFindBlockListener() {
 		var currentValue = modelFindInput.value;
 		if (currentValue.trim() != "") {
 			currentValue = currentValue.replace(/\s+/g, '');
-			console.log('fire ' + currentValue);
 			getPageViaAjax("/costs/find/" + currentValue, 1);
-		} else {
-			console.log('no data');
+		} else {			
 			document.getElementById('collapseCountValue').classList
 					.remove('show');
 			document.getElementById("showResultsButton").setAttribute(

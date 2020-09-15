@@ -74,6 +74,10 @@ public class OrderController {
 			}
 		}
 		order.getDateOrder().setTime(order.getDateOrder().getTime()+THREE_HOUR);
+		if(order.getAdditionalInfo()==null) order.setAdditionalInfo("");
+		if(order.getDeviceModel()==null) order.setDeviceModel("");
+		if(order.getCustomerAddress()==null) order.setCustomerAddress("");
+		if(order.getEmailAddress()==null) order.setEmailAddress("");
 		order = orderJdbcDao.save(order);
 		if (order != null) {
 			ajaxResponse.setErrorMessage("");
